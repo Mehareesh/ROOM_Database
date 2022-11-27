@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_nav"
+    app:startDestination="@id/usersList">
+
+    <fragment
+        android:id="@+id/usersList"
+        android:name="com.mmeruga.roomdatabase.UsersList"
+        android:label="Users List"
+        tools:layout="@layout/fragment_users_list" >
+        <action
+            android:id="@+id/action_usersList_to_addUser"
+            app:destination="@id/addUser" />
+    </fragment>
+    <fragment
+        android:id="@+id/addUser"
+        android:name="com.mmeruga.roomdatabase.AddUser"
+        android:label="Add User"
+        tools:layout="@layout/fragment_add_user" >
+        <action
+            android:id="@+id/action_addUser_to_usersList"
+            app:destination="@id/usersList" />
+    </fragment>
+</navigation>
