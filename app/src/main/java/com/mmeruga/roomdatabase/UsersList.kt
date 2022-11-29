@@ -44,7 +44,6 @@ class UsersList : Fragment(), View.OnClickListener {
         userViewModel.getUserData().observe(viewLifecycleOwner) {
                 user -> adapter.setUser(user)
         }
-
     }
 
     override fun onClick(v: View?) {

@@ -39,6 +39,8 @@ class AddUser : Fragment() {
         if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(emailId)) {
             val user = User(0, userName, emailId)
             userViewModel.addUser(user)
+
+
         }
     }
 
