@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.mmeruga.roomdatabase.database.User
 import com.mmeruga.roomdatabase.databinding.FragmentAddUserBinding
 import com.mmeruga.roomdatabase.repository.UserViewModel
@@ -39,10 +41,8 @@ class AddUser : Fragment() {
         if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(emailId)) {
             val user = User(0, userName, emailId)
             userViewModel.addUser(user)
-
-
+            Toast.makeText(activity, "Successfully added new user...!", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_addUser_to_usersList)
         }
     }
-
-
 }

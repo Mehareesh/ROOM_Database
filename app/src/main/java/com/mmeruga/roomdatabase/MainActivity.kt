@@ -10,7 +10,7 @@ import com.mmeruga.roomdatabase.database.User
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
-    public lateinit var userList: List<User>
+    lateinit var userList: List<User>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.fragmentContainerView)
         userList = emptyList<User>();
         setupActionBarWithNavController(navController)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
