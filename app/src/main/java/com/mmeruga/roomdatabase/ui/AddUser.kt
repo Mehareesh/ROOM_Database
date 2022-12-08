@@ -1,4 +1,4 @@
-package com.mmeruga.roomdatabase
+package com.mmeruga.roomdatabase.ui
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.mmeruga.roomdatabase.R
 import com.mmeruga.roomdatabase.database.User
 import com.mmeruga.roomdatabase.databinding.FragmentAddUserBinding
 import com.mmeruga.roomdatabase.repository.UserViewModel

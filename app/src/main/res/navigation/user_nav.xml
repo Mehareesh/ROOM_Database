@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/usersList"
-        android:name="com.mmeruga.roomdatabase.UsersList"
+        android:name="com.mmeruga.roomdatabase.ui.UsersList"
         android:label="Users List"
         tools:layout="@layout/fragment_users_list" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/addUser"
-        android:name="com.mmeruga.roomdatabase.AddUser"
+        android:name="com.mmeruga.roomdatabase.ui.AddUser"
         android:label="Add User"
         tools:layout="@layout/fragment_add_user" >
         <action
