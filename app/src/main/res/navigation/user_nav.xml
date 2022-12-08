@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_usersList_to_addUser"
             app:destination="@id/addUser" />
+        <action
+            android:id="@+id/action_usersList_to_updateUser"
+            app:destination="@id/updateUser" />
     </fragment>
     <fragment
         android:id="@+id/addUser"
@@ -22,5 +25,16 @@
         <action
             android:id="@+id/action_addUser_to_usersList"
             app:destination="@id/usersList" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateUser"
+        android:name="com.mmeruga.roomdatabase.ui.UpdateUser"
+        android:label="Update User" >
+        <action
+            android:id="@+id/action_updateUser_to_usersList"
+            app:destination="@id/usersList" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.mmeruga.roomdatabase.database.User" />
     </fragment>
 </navigation>

@@ -21,6 +21,9 @@ class UserDataAdapter: RecyclerView.Adapter<UserDataAdapter.ViewHolder>() {
         holder.itemView.textId.text = currentItem.id.toString()
         holder.itemView.textName.text = currentItem.name
         holder.itemView.textEmail.text = currentItem.email
+        holder.itemView.rowLayout.setOnClickListener(View.OnClickListener {
+            // click event
+        })
     }
 
     override fun getItemCount(): Int {
