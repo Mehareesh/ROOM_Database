@@ -3,9 +3,12 @@ package com.mmeruga.roomdatabase.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.mmeruga.roomdatabase.R
 import com.mmeruga.roomdatabase.database.User
+import com.mmeruga.roomdatabase.ui.UsersList
+import com.mmeruga.roomdatabase.ui.UsersListDirections
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class UserDataAdapter: RecyclerView.Adapter<UserDataAdapter.ViewHolder>() {
@@ -21,9 +24,10 @@ class UserDataAdapter: RecyclerView.Adapter<UserDataAdapter.ViewHolder>() {
         holder.itemView.textId.text = currentItem.id.toString()
         holder.itemView.textName.text = currentItem.name
         holder.itemView.textEmail.text = currentItem.email
-        holder.itemView.rowLayout.setOnClickListener(View.OnClickListener {
-            // click event
-        })
+        holder.itemView.rowLayout.setOnClickListener {
+            val action = UsersListDirections.actionUsersListToUpdateUser(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

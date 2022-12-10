@@ -12,10 +12,10 @@ class UserRepository(private val userDao: UserDao) {
         userDao.addUser(user)
     }
 
-//    fun updateUser(user: User) {
-//        userDao.updateUser(user)
-//    }
-//
+    suspend fun updateUser(user: User) {
+        userDao.updateUser(user)
+    }
+
 //    fun deleteUser(id: Int) {
 //        userDao.deleteUser(id)
 //    }
