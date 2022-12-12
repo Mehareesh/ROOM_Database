@@ -71,6 +71,7 @@ class UpdateUser : Fragment() {
             Toast.makeText(requireContext(),
                 "Successfully removed: ${args.currentUser.name}",
                 Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_updateUser_to_usersList)
         }
         builder.setNegativeButton("No") {_, _ -> }
         builder.setTitle("Delete ${args.currentUser.name} ?")
