@@ -73,5 +73,6 @@ class UsersList : Fragment(), View.OnClickListener {
         builder.setNegativeButton("No") { _, _ ->}
         builder.setTitle("Delete all users?")
         builder.setMessage("Are you sure want to delete all users?")
+        builder.create().show()
     }
 }
