@@ -1,15 +1,16 @@
 package com.mmeruga.roomdatabase.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mmeruga.roomdatabase.R
 import com.mmeruga.roomdatabase.adapter.UserDataAdapter
+import com.mmeruga.roomdatabase.database.UserDatabase
 import com.mmeruga.roomdatabase.databinding.FragmentUsersListBinding
 import com.mmeruga.roomdatabase.repository.UserViewModel
 
@@ -28,6 +29,7 @@ class UsersList : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
         binding = FragmentUsersListBinding.inflate(layoutInflater)
         binding.floatingActionButton.setOnClickListener(this)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -47,5 +49,29 @@ class UsersList : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         findNavController().navigate(R.id.action_usersList_to_addUser)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.delete_item) {
+            deleteAllUsers()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteAllUsers() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+            userViewModel.deleteAllUsers();
+            Toast.makeText(requireContext(),
+                "Successfully deleted all users from database",
+                Toast.LENGTH_SHORT).show()
+        }
+        builder.setNegativeButton("No") { _, _ ->}
+        builder.setTitle("Delete all users?")
+        builder.setMessage("Are you sure want to delete all users?")
     }
 }
